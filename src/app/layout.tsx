@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ParticleCanvas } from "@/components/background/ParticleCanvas";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/layout/Navbar";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -47,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable} scroll-smooth`}>
+    <html lang="en" className={`${outfit.variable} ${plusJakarta.variable} scroll-smooth`}>
       <body className="bg-[#0A0E14] text-white min-h-screen relative selection:bg-[#00E676]/30 selection:text-white">
         <SmoothScrollProvider>
           <ParticleCanvas />

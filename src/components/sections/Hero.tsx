@@ -17,7 +17,7 @@ import {
   Phone,
 } from "lucide-react";
 
-import { AiderLogoVisual } from "./AiderLogoVisual";
+import AiderLogoVisual from "./AiderLogoVisual";
 
 interface HeroService {
   id: string;
@@ -27,53 +27,40 @@ interface HeroService {
   category: string;
 }
 
-const HERO_SERVICES: HeroService[] =
-  [
-    {
-      id: "software",
-      title:
-        "Software Development | Custom Enterprise",
-      subtitle:
-        "Streamlined business operations and custom cloud architectures built for long-term scalability.",
-      image:
-        "/images/service_software.jpg",
-      category:
-        "Software Engineering",
-    },
-    {
-      id: "web",
-      title:
-        "Web App Development | Modern & Fast",
-      subtitle:
-        "Scalable web platforms engineered for performance, resilience, and conversion-focused experiences.",
-      image:
-        "/images/service_web.jpg",
-      category:
-        "Web Platforms",
-    },
-    {
-      id: "ecommerce",
-      title:
-        "E-Commerce Solutions | Enterprise Scale",
-      subtitle:
-        "High-velocity digital storefronts built with seamless checkout, inventory sync, and multi-currency support.",
-      image:
-        "/images/service_ecommerce.jpg",
-      category:
-        "E-Commerce",
-    },
-    {
-      id: "mobile",
-      title:
-        "Mobile App Development | iOS & Android",
-      subtitle:
-        "Native and cross-platform mobile apps delivering fluid, intuitive user experiences at scale.",
-      image:
-        "/images/service_mobile.jpg",
-      category:
-        "Mobile Apps",
-    },
-  ];
+const HERO_SERVICES: HeroService[] = [
+  {
+    id: "software",
+    title: "Software Development | Custom Enterprise",
+    subtitle:
+      "Streamlined business operations and custom cloud architectures built for long-term scalability.",
+    image: "/images/service_software.jpg",
+    category: "Software Engineering",
+  },
+  {
+    id: "web",
+    title: "Web App Development | Modern & Fast",
+    subtitle:
+      "Scalable web platforms engineered for performance, resilience, and conversion-focused experiences.",
+    image: "/images/service_web.jpg",
+    category: "Web Platforms",
+  },
+  {
+    id: "ecommerce",
+    title: "E-Commerce Solutions | Enterprise Scale",
+    subtitle:
+      "High-velocity digital storefronts built with seamless checkout, inventory sync, and multi-currency support.",
+    image: "/images/service_ecommerce.jpg",
+    category: "E-Commerce",
+  },
+  {
+    id: "mobile",
+    title: "Mobile App Development | iOS & Android",
+    subtitle:
+      "Native and cross-platform mobile apps delivering fluid, intuitive user experiences at scale.",
+    image: "/images/service_mobile.jpg",
+    category: "Mobile Apps",
+  },
+];
 
 const HEADLINE_PHRASES = [
   "Digital Innovation !",
@@ -83,90 +70,44 @@ const HEADLINE_PHRASES = [
 ];
 
 function TypewriterHeadline() {
-  const [
-    phraseIndex,
-    setPhraseIndex,
-  ] = useState(0);
-
-  const [
-    displayText,
-    setDisplayText,
-  ] = useState("");
-
-  const [
-    isDeleting,
-    setIsDeleting,
-  ] = useState(false);
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentFullText =
-      HEADLINE_PHRASES[
-      phraseIndex
-      ];
-
+    const currentFullText = HEADLINE_PHRASES[phraseIndex];
     let timeout: NodeJS.Timeout;
 
-    if (
-      !isDeleting &&
-      displayText ===
-      currentFullText
-    ) {
+    if (!isDeleting && displayText === currentFullText) {
       /*
        * Pause after typing.
        */
       timeout = setTimeout(() => {
         setIsDeleting(true);
       }, 2400);
-    } else if (
-      isDeleting &&
-      displayText === ""
-    ) {
+    } else if (isDeleting && displayText === "") {
       /*
        * Move to next phrase.
        */
       setIsDeleting(false);
-
-      setPhraseIndex(
-        (prev) =>
-          (prev + 1) %
-          HEADLINE_PHRASES.length
-      );
+      setPhraseIndex((prev) => (prev + 1) % HEADLINE_PHRASES.length);
     } else {
       /*
        * Typing/deleting.
        */
-      const typingSpeed =
-        isDeleting
-          ? 28
-          : 55;
+      const typingSpeed = isDeleting ? 28 : 55;
 
       timeout = setTimeout(() => {
-        const nextText =
-          isDeleting
-            ? currentFullText.substring(
-              0,
-              displayText.length -
-              1
-            )
-            : currentFullText.substring(
-              0,
-              displayText.length +
-              1
-            );
+        const nextText = isDeleting
+          ? currentFullText.substring(0, displayText.length - 1)
+          : currentFullText.substring(0, displayText.length + 1);
 
-        setDisplayText(
-          nextText
-        );
+        setDisplayText(nextText);
       }, typingSpeed);
     }
 
-    return () =>
-      clearTimeout(timeout);
-  }, [
-    displayText,
-    isDeleting,
-    phraseIndex,
-  ]);
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, phraseIndex]);
 
   return (
     <div className="w-full flex items-center mb-8 py-2">
@@ -193,9 +134,7 @@ function TypewriterHeadline() {
           drop-shadow-md
         "
       >
-        <span>
-          {displayText}
-        </span>
+        <span>{displayText}</span>
 
         <span
           className="
@@ -215,32 +154,20 @@ function TypewriterHeadline() {
 }
 
 export function Hero() {
-  const [
-    currentIndex,
-    setCurrentIndex,
-  ] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   /*
    * Automatically rotate services.
    */
   useEffect(() => {
-    const timer =
-      setInterval(() => {
-        setCurrentIndex(
-          (prev) =>
-            (prev + 1) %
-            HERO_SERVICES.length
-        );
-      }, 4200);
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % HERO_SERVICES.length);
+    }, 4200);
 
-    return () =>
-      clearInterval(timer);
+    return () => clearInterval(timer);
   }, []);
 
-  const activeService =
-    HERO_SERVICES[
-    currentIndex
-    ];
+  const activeService = HERO_SERVICES[currentIndex];
 
   return (
     <section
@@ -352,39 +279,27 @@ export function Hero() {
                 shadow-2xl
               "
             >
-              <AnimatePresence
-                mode="wait"
-              >
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={
-                    activeService.id
-                  }
+                  key={activeService.id}
                   initial={{
                     opacity: 0,
-                    filter:
-                      "blur(14px)",
+                    filter: "blur(14px)",
                     scale: 0.98,
                   }}
                   animate={{
                     opacity: 1,
-                    filter:
-                      "blur(0px)",
+                    filter: "blur(0px)",
                     scale: 1,
                   }}
                   exit={{
                     opacity: 0,
-                    filter:
-                      "blur(14px)",
+                    filter: "blur(14px)",
                     scale: 0.98,
                   }}
                   transition={{
                     duration: 0.45,
-                    ease: [
-                      0.16,
-                      1,
-                      0.3,
-                      1,
-                    ],
+                    ease: [0.16, 1, 0.3, 1],
                   }}
                   className="
                     w-full
@@ -413,13 +328,10 @@ export function Hero() {
                     "
                   >
                     <Image
-                      src={
-                        activeService.image
-                      }
-                      alt={
-                        activeService.title
-                      }
+                      src={activeService.image}
+                      alt={activeService.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 240px"
                       className="
                         object-cover
                         transition-transform
@@ -461,9 +373,7 @@ export function Hero() {
                             transition-colors
                           "
                         >
-                          {
-                            activeService.title
-                          }
+                          {activeService.title}
                         </h3>
 
                         <a
@@ -500,9 +410,7 @@ export function Hero() {
                           line-clamp-3
                         "
                       >
-                        {
-                          activeService.subtitle
-                        }
+                        {activeService.subtitle}
                       </p>
                     </div>
 
@@ -515,36 +423,23 @@ export function Hero() {
                         mt-4
                       "
                     >
-                      {HERO_SERVICES.map(
-                        (
-                          item,
-                          idx
-                        ) => (
-                          <button
-                            key={
-                              item.id
+                      {HERO_SERVICES.map((item, idx) => (
+                        <button
+                          key={item.id}
+                          onClick={() => setCurrentIndex(idx)}
+                          aria-label={`Go to service ${idx + 1}`}
+                          className={`
+                            h-1.5
+                            rounded-full
+                            transition-all
+                            duration-300
+                            ${idx === currentIndex
+                              ? "w-8 bg-[#00E676] shadow-[0_0_8px_#00E676]"
+                              : "w-2.5 bg-white/20 hover:bg-white/40"
                             }
-                            onClick={() =>
-                              setCurrentIndex(
-                                idx
-                              )
-                            }
-                            aria-label={`Go to service ${idx + 1
-                              }`}
-                            className={`
-                              h-1.5
-                              rounded-full
-                              transition-all
-                              duration-300
-                              ${idx ===
-                                currentIndex
-                                ? "w-8 bg-[#00E676] shadow-[0_0_8px_#00E676]"
-                                : "w-2.5 bg-white/20 hover:bg-white/40"
-                              }
-                            `}
-                          />
-                        )
-                      )}
+                          `}
+                        />
+                      ))}
                     </div>
                   </div>
                 </motion.div>
@@ -594,9 +489,7 @@ export function Hero() {
                 shadow-md
               "
             >
-              <span>
-                Book a Strategy Call
-              </span>
+              <span>Book a Strategy Call</span>
 
               <ArrowRight
                 className="
@@ -617,6 +510,7 @@ export function Hero() {
                 inline-flex
                 items-center
                 justify-center
+                gap-[#00E676]
                 gap-3
                 px-8
                 py-4
@@ -637,9 +531,7 @@ export function Hero() {
                 shadow-md
               "
             >
-              <span>
-                Let's Talk
-              </span>
+              <span>Let's Talk</span>
 
               <Phone
                 className="
@@ -657,8 +549,14 @@ export function Hero() {
         {/* =====================================================
             RIGHT COLUMN — AIDER LOGO VISUAL
         ====================================================== */}
-        <div className="lg:col-span-5 flex items-center justify-center relative w-full">
-          <AiderLogoVisual />
+        <div className="lg:col-span-5 flex items-center justify-center relative w-full min-h-[400px]">
+          {/* Soft ambient backlight behind logo */}
+          <div className="absolute w-72 h-72 bg-[#06b6d4]/20 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Logo container */}
+          <div className="relative z-10 w-full flex justify-center">
+            <AiderLogoVisual />
+          </div>
         </div>
       </div>
     </section>

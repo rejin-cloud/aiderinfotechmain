@@ -61,12 +61,12 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav Links — Centered & Pure White */}
-        <nav className="hidden md:flex items-center gap-9 lg:gap-11">
+        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-[16px] lg:text-[17px] font-medium text-white hover:text-[#00E676] transition-colors duration-200 tracking-[-0.01em]"
+              className="text-[18px] lg:text-[19.5px] font-medium text-white hover:text-[#00E676] transition-colors duration-200 tracking-[0.035em]"
             >
               {link.label}
             </a>
@@ -77,7 +77,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center shrink-0">
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white/[0.07] border border-white/20 hover:border-[#00E676] hover:bg-[#00E676] text-white hover:text-[#0A0E14] text-[15.5px] font-semibold transition-all duration-300 shadow-md active:scale-98"
+            className="group relative inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white/[0.07] border border-white/20 hover:border-[#00E676] hover:bg-[#00E676] text-white hover:text-[#0A0E14] text-[16.5px] font-medium transition-all duration-300 shadow-md active:scale-98 tracking-[0.02em]"
           >
             <span>Get in touch</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
