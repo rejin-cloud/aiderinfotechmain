@@ -232,3 +232,15 @@ h1, h2, h3, h4, h5, h6 {
     transform: none !important;
   }
 }
+
+/* Seamlessly hide fixed header/navbar and prevent background scroll when starfield modal is open */
+body.starfield-modal-open {
+  overflow: hidden !important;
+}
+
+body.starfield-modal-open header {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}

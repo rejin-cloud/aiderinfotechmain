@@ -9,11 +9,39 @@ export interface Service {
   imageAlt: string;
 }
 
+export interface DepartmentImage {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+export interface Department {
+  id: string;
+  name: string;
+  badge: string;
+  tagline: string;
+  headline: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  images?: DepartmentImage[];
+  color: string;
+  iconName: string;
+  highlights: string[];
+  pills: string[];
+  learnMoreHref: string;
+  enquireHref: string;
+}
+
 export interface Differentiator {
   id: string;
   title: string;
   description: string;
   iconName: string;
+  subtitle?: string;
+  details?: string[];
+  metric?: { value: string; label: string };
+  tags?: string[];
 }
 
 export interface FaqItem {
@@ -147,6 +175,146 @@ export const SITE_DATA = {
       imageAlt: "Data-driven digital marketing, SEO keyword ranking optimization and branding services by Aider Infotech",
     },
   ] as Service[],
+  departments: [
+    {
+      id: "academy",
+      name: "Aider Academy",
+      badge: "AIDER ACADEMY // TRAINING DIVISION",
+      tagline: "Empowering Next-Gen Tech Talent in Calicut",
+      headline: "Industry-Ready Software & AI Engineering Programs",
+      description:
+        "Aider Academy is a premier software engineering and digital marketing training institute in Calicut, Kerala. We bridge academic learning with enterprise software standards through live client projects, 1-on-1 expert mentorship, and 100% placement and internship assistance.",
+      image: "/images/dept_academy.jpg",
+      imageAlt: "Aider Academy software development and tech training campus in Calicut",
+      images: [
+        {
+          src: "/images/dept_academy.jpg",
+          alt: "Aider Academy software development and tech training campus in Calicut",
+          caption: "Tech Training Campus",
+        },
+        {
+          src: "/images/dept_academy_mentor.jpg",
+          alt: "1-on-1 Code Mentorship & AI Architecture Workshop at Aider Academy",
+          caption: "AI & Python Mentorship",
+        },
+        {
+          src: "/images/dept_academy_workshop.jpg",
+          alt: "Students collaborating on full-stack web and mobile applications",
+          caption: "Collaborative Hackathon Lab",
+        },
+      ],
+      color: "#00E5FF",
+      iconName: "GraduationCap",
+      highlights: [
+        "Full Stack, Flutter & Python Engineering",
+        "AI, Machine Learning & Data Analytics Labs",
+        "100% Placement & Internship Assistance",
+        "Live Client Capstone Project Deployments",
+      ],
+      pills: [
+        "Full Stack Dev",
+        "Python & AI",
+        "Flutter Mobile",
+        "UI/UX Design",
+        "Digital Marketing",
+        "100% Placement",
+      ],
+      learnMoreHref: "/academy",
+      enquireHref: "/academy#enroll",
+    },
+    {
+      id: "creative",
+      name: "Aider Creative",
+      badge: "AIDER CREATIVE // DIGITAL MEDIA & MARKETING",
+      tagline: "High-Conversion Branding & Performance Marketing",
+      headline: "Data-Driven SEO, Social Media & Digital Growth Campaigns",
+      description:
+        "Aider Creative is the growth and brand media studio of Aider Infotech. We engineer high-impact digital marketing strategies, SEO dominance, viral social media momentum, and avant-garde brand identities that turn online traffic into sustainable enterprise revenue.",
+      image: "/images/dept_creative.jpg",
+      imageAlt: "Aider Creative digital marketing, SEO and branding studio in Calicut",
+      images: [
+        {
+          src: "/images/dept_creative.jpg",
+          alt: "Aider Creative digital marketing, SEO and branding studio in Calicut",
+          caption: "Marketing & Strategy Suite",
+        },
+        {
+          src: "/images/dept_creative_studio.jpg",
+          alt: "UI/UX designers crafting 3D brand identity and design systems",
+          caption: "3D Brand & Design Studio",
+        },
+        {
+          src: "/images/dept_creative_video.jpg",
+          alt: "Commercial video production and content creation suite with color grading",
+          caption: "Commercial Video & Production",
+        },
+      ],
+      color: "#00E676",
+      iconName: "Sparkles",
+      highlights: [
+        "Rank #1 Search Engine Optimization (SEO)",
+        "Social Media Growth & Viral Content Studio",
+        "ROI-Focused Performance Ads & Meta/Google Ads",
+        "Complete Brand Identity, Logos & 3D Media",
+      ],
+      pills: [
+        "SEO Optimization",
+        "Social Media Mgmt",
+        "Performance Marketing",
+        "Brand Identity",
+        "3D Visuals & Video",
+        "Content Strategy",
+      ],
+      learnMoreHref: "/creative",
+      enquireHref: "/creative#consult",
+    },
+    {
+      id: "techstore",
+      name: "IT Club Techstore",
+      badge: "IT CLUB TECHSTORE // HARDWARE & MAINTENANCE",
+      tagline: "Custom PC Hardware, Laptops & Diagnostic Lab",
+      headline: "High-Performance Workstations, Desktops & Expert Repair Center",
+      description:
+        "IT Club Techstore is Calicut's specialized computer hardware boutique and certified repair center. From custom liquid-cooled gaming rigs and high-end video editing workstations to motherboard repairs and hardware upgrades, we deliver speed, reliability, and precision.",
+      image: "/images/dept_techstore.jpg",
+      imageAlt: "IT Club Techstore desktop, laptop sales and maintenance center in Calicut",
+      images: [
+        {
+          src: "/images/dept_techstore.jpg",
+          alt: "IT Club Techstore desktop, laptop sales and maintenance center in Calicut",
+          caption: "Hardware & PC Showroom",
+        },
+        {
+          src: "/images/dept_techstore_pcbuild.jpg",
+          alt: "Custom liquid-cooled gaming PC assembly with glowing UV coolant",
+          caption: "Custom Liquid-Cooling Lab",
+        },
+        {
+          src: "/images/dept_techstore_repair.jpg",
+          alt: "Motherboard chip-level repair lab with high-magnification stereomicroscope",
+          caption: "Chip-Level Diagnostic Center",
+        },
+      ],
+      color: "#A855F7",
+      iconName: "Cpu",
+      highlights: [
+        "Custom Liquid-Cooled Gaming & Workstation PCs",
+        "Desktop & Laptop Motherboard Chip-Level Repairs",
+        "Hardware Upgrades (RAM, SSD, High-End GPUs)",
+        "Same-Day Diagnostics & Enterprise Maintenance",
+      ],
+      pills: [
+        "Custom PC Builds",
+        "Laptops & Desktops",
+        "Chip-Level Repairs",
+        "GPU & SSD Upgrades",
+        "Gaming Workstations",
+        "Fast Diagnostics",
+      ],
+      learnMoreHref: "/techstore",
+      enquireHref: "/techstore#service",
+    },
+  ] as Department[],
   academy: {
     heading: "Innovative Software Solutions & Academy in Calicut",
     subheading: "Aider Academy: Bridging Education & High-Tech Industry",
@@ -168,50 +336,114 @@ export const SITE_DATA = {
     {
       id: "1",
       title: "End-to-End Digital Solutions",
+      subtitle: "Unified Full-Lifecycle Product Development",
       description: "From custom software and web development to performance marketing and branding — all under one unified roof.",
       iconName: "Layers",
+      details: [
+        "Comprehensive discovery, UI/UX architecture, cloud development, and automated DevOps.",
+        "Integrated multi-platform delivery across High-Concurrency Web, Flutter Mobile, and APIs.",
+        "Post-launch data-driven growth marketing, SEO scaling, and 24/7 proactive maintenance."
+      ],
+      metric: { value: "360°", label: "Full-Stack Ecosystem Coverage" },
+      tags: ["Custom Software", "Mobile Apps", "Cloud Infrastructure", "DevOps", "Growth Marketing"]
     },
     {
       id: "2",
       title: "Results-Driven Approach",
+      subtitle: "Measurable ROI & Revenue-Centric Delivery",
       description: "We focus on measurable outcomes, helping businesses maximize ROI, increase visibility, and scale customer acquisition.",
       iconName: "TrendingUp",
+      details: [
+        "Data-backed sprints tied directly to business KPIs, user retention, and conversion metrics.",
+        "Advanced funnel analytics and event tracking embedded into every application layer.",
+        "Lean, agile architecture minimizing technical debt and maximizing product lifecycle velocity."
+      ],
+      metric: { value: "3.8x", label: "Average Client ROI Multiplier" },
+      tags: ["ROI Optimization", "Analytics", "KPI Alignment", "Conversion Rate", "Scalability"]
     },
     {
       id: "3",
       title: "Experienced Professionals",
+      subtitle: "Elite Engineers, Designers & Tech Consultants",
       description: "Our team consists of skilled engineers, UI/UX designers, and technology consultants with real-world enterprise expertise.",
       iconName: "Users",
+      details: [
+        "Senior engineering talent across modern cloud stacks, AI integration, and reactive frontends.",
+        "Direct senior lead engagement on every build with zero junior outsourcing pass-offs.",
+        "Continuous R&D in distributed systems, modern web standards, and secure enterprise patterns."
+      ],
+      metric: { value: "100%", label: "Senior Hands-On Execution" },
+      tags: ["Senior Architects", "UI/UX Designers", "Domain Specialists", "Tech Consultants"]
     },
     {
       id: "4",
       title: "Tailor-Made Solutions",
+      subtitle: "Zero Generic Templates, 100% Bespoke Code",
       description: "Every business is unique. We engineer custom architectures and tailored strategies aligned with your exact roadmap.",
       iconName: "Cpu",
+      details: [
+        "Custom software engineered around your specific organizational workflows and data flows.",
+        "Seamless third-party ERP, CRM, payment gateway, and legacy database system integrations.",
+        "Modular microservice layers that adapt fluidly as enterprise customer volume scales."
+      ],
+      metric: { value: "100%", label: "Bespoke System Architecture" },
+      tags: ["Bespoke Architecture", "API Integration", "Modular Design", "High Concurrency"]
     },
     {
       id: "5",
       title: "Latest Technologies",
+      subtitle: "Modern Stacks, AI Automation & Cloud Native",
       description: "We leverage modern frameworks, cloud architectures, AI automation, and secure DevOps to keep you ahead.",
       iconName: "Zap",
+      details: [
+        "State-of-the-art toolchains: Next.js 16, React 19, Python, Flutter, Docker, and AWS/GCP.",
+        "Embedded generative AI workflows, intelligent copilots, and real-time inference pipelines.",
+        "Enterprise zero-trust security postures, end-to-end encryption, and automated testing."
+      ],
+      metric: { value: "99.9%", label: "Production Uptime & Reliability" },
+      tags: ["Next.js & React", "Python & AI", "Flutter Native", "Cloud Native", "Microservices"]
     },
     {
       id: "6",
       title: "Transparent Communication",
+      subtitle: "Real-Time Collaboration & Direct Sprints",
       description: "Regular sprint demos, weekly milestones, clear reporting, and complete transparency at every development stage.",
       iconName: "MessageSquare",
+      details: [
+        "Weekly sprint demos, real-time shared staging environments, and roadmap dashboards.",
+        "Direct communication with core developers and project leads via dedicated channels.",
+        "Transparent milestone billing with clearly audited deliverables at each project milestone."
+      ],
+      metric: { value: "24/7", label: "Synchronous Visibility & Staging" },
+      tags: ["Agile Sprints", "Live Demos", "Weekly Milestones", "Direct Access", "Full Auditing"]
     },
     {
       id: "7",
       title: "Client-Centric Partnership",
+      subtitle: "Long-Term Strategic Alliances Beyond Deployment",
       description: "We don't just deliver code — we forge long-term strategic technology partnerships to sustain your continued growth.",
       iconName: "ShieldCheck",
+      details: [
+        "We operate as an extension of your internal executive engineering leadership team.",
+        "Proactive architectural audits to continuously future-proof your digital assets.",
+        "Dedicated SLA support, continuous feature evolution, and rapid incident response."
+      ],
+      metric: { value: "94%", label: "Long-Term Client Retention Rate" },
+      tags: ["Strategic Advisory", "SLA Guarantees", "Continuous Upgrades", "Executive Partner"]
     },
     {
       id: "8",
       title: "Proven Success Track Record",
+      subtitle: "Trusted by Startups, SMEs & Global Enterprises",
       description: "Trusted by startups, SMEs, and established global enterprises with a track record of high-impact digital products.",
       iconName: "Award",
+      details: [
+        "990+ successful digital projects shipped across India, GCC, and international markets.",
+        "Deep vertical experience spanning Fintech, Healthcare, E-Commerce, Education, and Logistics.",
+        "Recognized for technical excellence, aesthetic sophistication, and reliable execution."
+      ],
+      metric: { value: "991+", label: "Completed Global Deployments" },
+      tags: ["Global Deployments", "Fintech & Healthcare", "Enterprise Grade", "Proven Delivery"]
     },
   ] as Differentiator[],
   faqs: [

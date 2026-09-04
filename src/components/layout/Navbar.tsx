@@ -7,12 +7,12 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Academy", href: "#academy" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "FAQs", href: "#faqs" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Departments", href: "/#departments" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "FAQs", href: "/#faqs" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -46,7 +46,7 @@ export function Navbar() {
       <div className="w-full px-6 sm:px-10 lg:px-12 xl:px-14 flex items-center justify-between">
         {/* Official Brand Logo — Prominent & Pinned to Far Left */}
         <Link
-          href="#hero"
+          href="/"
           className="flex items-center shrink-0 group transition-transform duration-300 hover:scale-[1.03]"
           aria-label="Aider Infotech Home"
         >
