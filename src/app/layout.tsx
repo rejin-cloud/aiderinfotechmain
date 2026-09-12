@@ -24,12 +24,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aiderinfotech.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Aider Infotech | Best Software Development Company in Calicut",
+    default: "Aider Infotech | Best Digital Solutions in Calicut",
     template: "%s | Aider Infotech",
   },
   description:
     "Empower your business with innovative custom software development, high-performance web applications, mobile apps, and data-driven digital solutions in Calicut, Kerala.",
   keywords: [
+    "Digital Solutions Calicut",
     "Software Development Calicut",
     "Web Development Kerala",
     "Mobile App Development Calicut",
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Aider Infotech | Best Software Development Company in Calicut",
+    title: "Aider Infotech | Best Digital Solutions in Calicut",
     description:
       "Empower your business with innovative custom software development, web & mobile apps, IT training, and data-driven digital solutions in Calicut, Kerala.",
     url: siteUrl,
@@ -68,10 +69,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aider Infotech | Best Software Development Company in Calicut",
+    title: "Aider Infotech | Best Digital Solutions in Calicut",
     description:
       "Empower your business with innovative custom software development, web & mobile apps, IT training, and digital solutions.",
     creator: "@aiderinfotech",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/images/aider-logo-white-text.webp",
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || "google-site-verification-placeholder",
@@ -81,6 +87,16 @@ export const metadata: Metadata = {
 const jsonLdOrgAndBusiness = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "Aider Infotech",
+      "alternateName": ["Aider Infotech | Best Digital Solutions in Calicut", "AiderInfotech"],
+      "publisher": {
+        "@id": `${siteUrl}/#organization`,
+      },
+    },
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,

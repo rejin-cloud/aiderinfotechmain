@@ -12,14 +12,14 @@ import { SITE_DATA } from "@/data/content";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aiderinfotech.com";
 
 export const metadata: Metadata = {
-  title: "Best Software Development & IT Solutions Company in Calicut, Kerala",
+  title: "Aider Infotech | Best Digital Solutions in Calicut",
   description:
     "Aider Infotech delivers enterprise custom software development, web & mobile applications, AI integration, digital marketing, and tech training in Calicut, Kerala.",
   alternates: {
     canonical: siteUrl,
   },
   openGraph: {
-    title: "Best Software Development & IT Solutions Company in Calicut, Kerala | Aider Infotech",
+    title: "Aider Infotech | Best Digital Solutions in Calicut",
     description:
       "Aider Infotech delivers enterprise custom software development, web & mobile applications, AI integration, digital marketing, and tech training in Calicut, Kerala.",
     url: siteUrl,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Software Development Company in Calicut | Aider Infotech",
+    title: "Aider Infotech | Best Digital Solutions in Calicut",
     description:
       "Custom software development, web & mobile apps, digital marketing, and tech training in Calicut, Kerala.",
   },
