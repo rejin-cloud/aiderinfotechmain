@@ -62,6 +62,12 @@ export function AiderLogoVisual() {
     const resizeCanvas = () => {
       winWidth = window.innerWidth;
       winHeight = window.innerHeight;
+      if (winWidth < 1024) {
+        canvas.style.display = "none";
+        return;
+      } else {
+        canvas.style.display = "block";
+      }
       canvas.width = winWidth * dpr;
       canvas.height = winHeight * dpr;
       canvas.style.width = `${winWidth}px`;
@@ -272,7 +278,7 @@ export function AiderLogoVisual() {
     const dotRadius = isMobile ? 1.05 : 1.25;
 
     const render = (now: number) => {
-      if (isPastSection2Ref.current || document.hidden) {
+      if (winWidth < 1024 || isPastSection2Ref.current || document.hidden) {
         animationFrameId = requestAnimationFrame(render);
         return;
       }

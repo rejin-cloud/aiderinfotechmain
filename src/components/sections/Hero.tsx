@@ -554,9 +554,9 @@ export function Hero() {
         </div>
 
         {/* =====================================================
-            RIGHT COLUMN — AIDER LOGO VISUAL
+            RIGHT COLUMN — AIDER LOGO VISUAL (Desktop Only)
         ====================================================== */}
-        <div className="lg:col-span-5 flex items-center justify-center relative w-full min-h-[400px]">
+        <div className="hidden lg:flex lg:col-span-5 items-center justify-center relative w-full min-h-[400px]">
           {/* Soft ambient backlight behind logo */}
           <div className="absolute w-72 h-72 bg-[#06b6d4]/20 rounded-full blur-3xl pointer-events-none" />
 
