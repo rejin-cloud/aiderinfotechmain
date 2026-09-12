@@ -31,13 +31,13 @@ export const metadata: Metadata = {
   description:
     "Explore Aider Infotech's end-to-end software development, web engineering, mobile apps (iOS & Android), custom ERP/CRM automation, e-commerce, SEO, and performance digital marketing services.",
   alternates: {
-    canonical: `${siteUrl}/services`,
+    canonical: `${siteUrl}/services/`,
   },
   openGraph: {
     title: "Services & Enterprise IT Solutions | Aider Infotech",
     description:
       "High-velocity software engineering, responsive web apps, native mobile apps, custom ERP/CRM, and data-driven digital marketing tailored for business growth.",
-    url: `${siteUrl}/services`,
+    url: `${siteUrl}/services/`,
     siteName: "Aider Infotech",
     locale: "en_IN",
     type: "website",

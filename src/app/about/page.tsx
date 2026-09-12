@@ -29,13 +29,13 @@ export const metadata: Metadata = {
   description:
     "Learn how Aider Infotech transforms business ideas into practical, scalable digital solutions, combining custom software development, web apps, mobile apps, ERP/CRM, SEO, and performance digital marketing.",
   alternates: {
-    canonical: `${siteUrl}/about`,
+    canonical: `${siteUrl}/about/`,
   },
   openGraph: {
     title: "About Aider Infotech | Building Technology That Drives Business Growth",
     description:
       "We combine technology, creativity, and digital strategy to build custom software, web & mobile applications, and high-ROI digital solutions.",
-    url: `${siteUrl}/about`,
+    url: `${siteUrl}/about/`,
     siteName: "Aider Infotech",
     locale: "en_IN",
     type: "website",

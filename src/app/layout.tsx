@@ -141,6 +141,55 @@ const jsonLdOrgAndBusiness = {
         "closes": "18:00",
       },
     },
+    {
+      "@type": "ItemList",
+      "@id": `${siteUrl}/#sitelinks`,
+      "name": "Main Navigation Sitelinks",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "About Us",
+          "description": "About Aider Infotech custom software development, digital marketing, and team in Calicut.",
+          "url": `${siteUrl}/about/`
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "Services",
+          "description": "Custom Software Development, Web Apps, Mobile Apps & Digital Marketing Services.",
+          "url": `${siteUrl}/services/`
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Contact Us",
+          "description": "Get in touch with Aider Infotech in Nadakkav, Calicut, Kerala.",
+          "url": `${siteUrl}/contact/`
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Aider Academy",
+          "description": "Software & AI engineering training institute in Calicut.",
+          "url": `${siteUrl}/academy/`
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Aider Creative",
+          "description": "Digital marketing, SEO, and branding studio.",
+          "url": `${siteUrl}/creative/`
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 6,
+          "name": "IT Club Techstore",
+          "description": "Custom PC builds and laptop repair center in Calicut.",
+          "url": `${siteUrl}/techstore/`
+        }
+      ]
+    }
   ],
 };
 
