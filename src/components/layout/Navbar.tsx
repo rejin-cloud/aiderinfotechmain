@@ -51,7 +51,7 @@ export function Navbar() {
           aria-label="Aider Infotech Home"
         >
           <Image
-            src="/images/aider-logo-white-text.png"
+            src="/images/aider-logo-white-text.webp"
             alt="Aider Infotech"
             width={260}
             height={108}
@@ -101,7 +101,7 @@ export function Navbar() {
         <div id="mobile-navigation-drawer" className="md:hidden bg-[#0A0E14]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-6 transition-all duration-300 animate-in fade-in slide-in-from-top-4">
           <div className="pb-4 mb-3 border-b border-white/10 flex items-center">
             <Image
-              src="/images/aider-logo-white-text.png"
+              src="/images/aider-logo-white-text.webp"
               alt="Aider Infotech"
               width={200}
               height={83}

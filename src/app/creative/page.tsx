@@ -191,7 +191,7 @@ export default function CreativePage() {
             {/* Studio Preview Image */}
             <div className="lg:col-span-5 relative h-[300px] sm:h-[380px] rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
               <Image
-                src="/images/dept_creative.jpg"
+                src="/images/dept_creative.webp"
                 alt="Aider Creative digital marketing and branding studio in Calicut"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"

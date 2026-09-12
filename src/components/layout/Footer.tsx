@@ -440,7 +440,7 @@ export function Footer() {
               {/* Brand Logo */}
               <Link href="#hero" className="inline-block mb-5 group">
                 <Image
-                  src="/images/aider-logo-white-text.png"
+                  src="/images/aider-logo-white-text.webp"
                   alt="Aider Infotech - Best Software Development Company in Calicut"
                   width={240}
                   height={80}

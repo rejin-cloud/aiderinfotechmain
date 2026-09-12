@@ -185,7 +185,7 @@ export const SITE_DATA = {
       body: "Great web development isn't just about clean code it's about building websites that feel fast, look professional, and actually help your business grow. Whether you're launching a new site, redesigning an existing one, or adding custom features, our web development services focus on performance, security, and user experience from day one. We build with modern technologies like WordPress, custom CMS solutions, and responsive frameworks so your site loads quickly on any device and ranks well in search. Every line of code is optimized for Core Web Vitals, mobile-first design, and SEO best practices so you get a website that's not only beautiful but also visible to the people who matter most: your customers.",
       tag: "Modern Web Apps",
       metrics: "< 0.8s LCP Performance",
-      image: "/images/Web Development Services in Calicut.jpeg",
+      image: "/images/Web Development Services in Calicut.webp",
       imageAlt: "Modern responsive web development, Next.js architecture, and UI/UX design by Aider Infotech",
     },
     {
@@ -257,12 +257,12 @@ export const SITE_DATA = {
           caption: "Tech Training Campus",
         },
         {
-          src: "/images/dept_academy_mentor.jpg",
+          src: "/images/dept_academy_mentor.webp",
           alt: "1-on-1 Code Mentorship & AI Architecture Workshop at Aider Academy",
           caption: "AI & Python Mentorship",
         },
         {
-          src: "/images/dept_academy_workshop.jpg",
+          src: "/images/dept_academy_workshop.webp",
           alt: "Students collaborating on full-stack web and mobile applications",
           caption: "Collaborative Hackathon Lab",
         },
@@ -294,21 +294,21 @@ export const SITE_DATA = {
       headline: "Data-Driven SEO, Social Media & Digital Growth Campaigns",
       description:
         "Aider Creative is the growth and brand media studio of Aider Infotech. We engineer high-impact digital marketing strategies, SEO dominance, viral social media momentum, and avant-garde brand identities that turn online traffic into sustainable enterprise revenue.",
-      image: "/images/dept_creative.jpg",
+      image: "/images/dept_creative.webp",
       imageAlt: "Aider Creative digital marketing, SEO and branding studio in Calicut",
       images: [
         {
-          src: "/images/dept_creative.jpg",
+          src: "/images/dept_creative.webp",
           alt: "Aider Creative digital marketing, SEO and branding studio in Calicut",
           caption: "Marketing & Strategy Suite",
         },
         {
-          src: "/images/dept_creative_studio.jpg",
+          src: "/images/dept_creative_studio.webp",
           alt: "UI/UX designers crafting 3D brand identity and design systems",
           caption: "3D Brand & Design Studio",
         },
         {
-          src: "/images/dept_creative_video.jpg",
+          src: "/images/dept_creative_video.webp",
           alt: "Commercial video production and content creation suite with color grading",
           caption: "Commercial Video & Production",
         },
@@ -340,21 +340,21 @@ export const SITE_DATA = {
       headline: "High-Performance Workstations, Desktops & Expert Repair Center",
       description:
         "IT Club Techstore is Calicut's specialized computer hardware boutique and certified repair center. From custom liquid-cooled gaming rigs and high-end video editing workstations to motherboard repairs and hardware upgrades, we deliver speed, reliability, and precision.",
-      image: "/images/dept_techstore.jpg",
+      image: "/images/dept_techstore.webp",
       imageAlt: "IT Club Techstore desktop, laptop sales and maintenance center in Calicut",
       images: [
         {
-          src: "/images/dept_techstore.jpg",
+          src: "/images/dept_techstore.webp",
           alt: "IT Club Techstore desktop, laptop sales and maintenance center in Calicut",
           caption: "Hardware & PC Showroom",
         },
         {
-          src: "/images/dept_techstore_pcbuild.jpg",
+          src: "/images/dept_techstore_pcbuild.webp",
           alt: "Custom liquid-cooled gaming PC assembly with glowing UV coolant",
           caption: "Custom Liquid-Cooling Lab",
         },
         {
-          src: "/images/dept_techstore_repair.jpg",
+          src: "/images/dept_techstore_repair.webp",
           alt: "Motherboard chip-level repair lab with high-magnification stereomicroscope",
           caption: "Chip-Level Diagnostic Center",
         },

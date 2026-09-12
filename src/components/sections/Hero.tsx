@@ -41,7 +41,7 @@ const HERO_SERVICES: HeroService[] = [
     title: "Web App Development | Modern & Fast",
     subtitle:
       "Scalable web platforms engineered for performance, resilience, and conversion-focused experiences.",
-    image: "/images/Web Development Services in Calicut.jpeg",
+    image: "/images/Web Development Services in Calicut.webp",
     category: "Web Platforms",
   },
   {
