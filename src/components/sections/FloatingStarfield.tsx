@@ -297,9 +297,9 @@ export function FloatingStarfield({ items }: FloatingStarfieldProps) {
                         EXPLORE
                       </span>
                     </div>
-                    <h3 className="text-xs sm:text-sm font-bold text-white tracking-tight leading-snug group-hover:text-[#00E676] transition-colors line-clamp-2">
+                    <h4 className="text-xs sm:text-sm font-bold text-white tracking-tight leading-snug group-hover:text-[#00E676] transition-colors line-clamp-2">
                       {item.title}
-                    </h3>
+                    </h4>
                   </div>
 
                   {/* Subtle Zoom Hint Icon */}
@@ -445,12 +445,12 @@ export function FloatingStarfield({ items }: FloatingStarfieldProps) {
                   </div>
 
                   <div className="flex-1 min-w-0 pr-6">
-                    <h2
+                    <h4
                       id={titleId}
                       className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug mb-1"
                     >
                       {selectedItem.title}
-                    </h2>
+                    </h4>
                     {selectedItem.subtitle && (
                       <p className="text-xs font-semibold text-[#00E676]">
                         {selectedItem.subtitle}

@@ -38,7 +38,7 @@ export function FaqAndBlog() {
     <section id="faqs" className="relative py-28 px-6 md:px-12 bg-transparent overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Top FAQ Slider Block */}
-        <div className="mb-32">
+        <div>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#00E676] uppercase tracking-wider mb-3">
@@ -107,62 +107,6 @@ export function FaqAndBlog() {
                 </p>
               </motion.div>
             </AnimatePresence>
-          </div>
-        </div>
-
-        {/* Blog & Industry Insights */}
-        <div>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-[#00E676] uppercase tracking-wider mb-3">
-                <BookOpen className="w-3.5 h-3.5" />
-                <span>Knowledge & Insights</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                Latest Engineering Perspectives
-              </h2>
-            </div>
-            <p className="text-sm text-[#9CA3AF] max-w-md">
-              Thought leadership, architectural deep dives, and digital marketing insights from our senior technology teams.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {SITE_DATA.blogs.map((blog, idx) => (
-              <motion.article
-                key={blog.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="glass-card p-8 border border-white/10 flex flex-col justify-between group hover:border-[#00E676]/40 cursor-pointer"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-xs font-mono text-[#9CA3AF] mb-4">
-                    <span className="text-[#00E676] bg-[#00E676]/10 px-2.5 py-0.5 rounded">
-                      {blog.category}
-                    </span>
-                    <span>{blog.readTime}</span>
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#00E676] transition-colors leading-snug">
-                    {blog.title}
-                  </h3>
-
-                  <p className="text-sm text-[#9CA3AF] leading-relaxed mb-6">
-                    {blog.excerpt}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#9CA3AF]">{blog.date}</span>
-                  <div className="inline-flex items-center gap-2 text-xs font-semibold text-white group-hover:text-[#00E676] transition-colors">
-                    <span>Read Article</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </div>
-                </div>
-              </motion.article>
-            ))}
           </div>
         </div>
       </div>

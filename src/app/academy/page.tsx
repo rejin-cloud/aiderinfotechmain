@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import {
   GraduationCap,
@@ -18,11 +19,32 @@ import {
   MapPin,
 } from "lucide-react";
 
-export const metadata = {
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aiderinfotech.com";
+
+export const metadata: Metadata = {
   title: "Aider Academy | Premier Software & Tech Training Institute in Calicut",
   description:
     "Aider Academy in Calicut offers industry-oriented training in Full Stack Development, Python, Flutter, AI, UI/UX Design, and Digital Marketing with 100% placement assistance and live capstone client projects.",
+  alternates: {
+    canonical: `${siteUrl}/academy`,
+  },
+  openGraph: {
+    title: "Aider Academy | Premier Software & Tech Training Institute in Calicut",
+    description:
+      "Aider Academy offers enterprise tech courses in Full Stack, Python AI, Flutter, UI/UX, and Digital Marketing with live projects & placement support.",
+    url: `${siteUrl}/academy`,
+    siteName: "Aider Infotech",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aider Academy | Premier Software Training in Calicut",
+    description:
+      "Industry-oriented tech training in Full Stack, Python, Flutter, AI, UI/UX, and Digital Marketing.",
+  },
 };
+
 
 const COURSES = [
   {
@@ -63,21 +85,64 @@ const COURSES = [
 ];
 
 export default function AcademyPage() {
+  const jsonLdAcademy = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": `${siteUrl}/academy/#organization`,
+        "name": "Aider Academy",
+        "url": `${siteUrl}/academy`,
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Aider Infotech",
+          "url": siteUrl,
+        },
+        "description":
+          "Premier Software & Tech Training Institute in Calicut offering Full Stack, Python, AI, Flutter, UI/UX, and Digital Marketing courses.",
+        "telephone": "+91 9605 44 73 74",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1/3714-d2 City Corner Building Nadakkavu",
+          "addressLocality": "Kozhikode",
+          "addressRegion": "Kerala",
+          "addressCountry": "IN",
+        },
+      },
+      ...COURSES.map((course) => ({
+        "@type": "Course",
+        "name": course.title,
+        "description": course.description,
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Aider Academy",
+          "sameAs": `${siteUrl}/academy`,
+        },
+      })),
+    ],
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-[#0A0E14] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdAcademy) }}
+      />
       <main className="flex-1 pt-32 pb-20 px-6 sm:px-12 max-w-7xl mx-auto w-full">
         {/* Back Link */}
         <Link
           href="/#departments"
-          className="inline-flex items-center gap-2 text-sm text-[#9CA3AF] hover:text-[#00E5FF] transition-colors mb-8 group"
+          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-[#00E5FF]/60 hover:bg-[#00E5FF]/10 text-white/80 hover:text-[#00E5FF] text-xs font-mono tracking-wider font-semibold transition-all duration-300 shadow-lg group backdrop-blur-md mb-8 active:scale-95"
         >
-          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          <span>Back to Home</span>
+          <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#00E5FF]/20 flex items-center justify-center text-[#00E5FF] transition-colors">
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
+          </div>
+          <span>BACK TO DEPARTMENTS</span>
         </Link>
 
         {/* Hero Section */}
-        <div className="glass-card relative p-8 sm:p-14 border border-white/10 rounded-3xl overflow-hidden mb-16">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#00E5FF]/15 blur-[120px] pointer-events-none" />
+        <div className="glass-card relative p-8 sm:p-14 border border-white/10 rounded-3xl overflow-hidden mb-16 shadow-2xl">
+
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
@@ -121,9 +186,10 @@ export default function AcademyPage() {
             {/* Campus Preview Image */}
             <div className="lg:col-span-5 relative h-[300px] sm:h-[380px] rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
               <Image
-                src="/images/dept_academy.jpg"
+                src="/images/dept_academy.webp"
                 alt="Aider Academy training campus and software lab in Calicut"
                 fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
                 priority
                 className="object-cover object-center"
               />
@@ -137,7 +203,9 @@ export default function AcademyPage() {
         </div>
 
         {/* Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <section aria-label="Academy Highlights" className="mb-20">
+          <h2 className="sr-only">Why Choose Aider Academy</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="glass-card p-6 sm:p-8 border border-white/10 rounded-2xl">
             <Award className="w-8 h-8 text-[#00E5FF] mb-4" />
             <h3 className="text-xl font-bold text-white mb-2">100% Placement Support</h3>
@@ -165,6 +233,7 @@ export default function AcademyPage() {
             </p>
           </div>
         </div>
+      </section>
 
         {/* Curriculum Section */}
         <div id="curriculum" className="mb-20">
@@ -227,17 +296,17 @@ export default function AcademyPage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
               Begin Your Tech Journey at Aider Academy
             </h2>
-            <p className="text-sm sm:text-base text-[#9CA3AF] mb-8">
-              Speak with our academic counselors in Calicut to discuss batch schedules, syllabus details, and scholarship opportunities.
+            <p className="text-sm sm:text-base text-[#9CA3AF] mb-6">
+              Speak with our academic counselors at 1/3714-d2 City Corner Building Nadakkavu, Kozhikode, Kerala.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
               <a
-                href="tel:+918137837374"
+                href="tel:+919605447374"
                 className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-[#00E5FF] text-black font-bold text-sm shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:bg-white transition-all"
               >
                 <Phone className="w-4 h-4" />
-                <span>Call Admissions: +91 8137837374</span>
+                <span>Call Admissions: +91 9605 44 73 74</span>
               </a>
 
               <a
@@ -246,6 +315,16 @@ export default function AcademyPage() {
               >
                 <Mail className="w-4 h-4" />
                 <span>Email: info@aiderinfotech.com</span>
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center gap-6 text-xs text-[#9CA3AF] border-t border-white/10 pt-6">
+              <a href="https://aiderinfotech.com/academy" className="hover:text-[#00E5FF] transition-colors">
+                🌐 aider.academy
+              </a>
+              <span>•</span>
+              <a href="https://instagram.com/aider.academy" target="_blank" rel="noopener noreferrer" className="hover:text-[#00E5FF] transition-colors">
+                📷 @aider.academy
               </a>
             </div>
           </div>

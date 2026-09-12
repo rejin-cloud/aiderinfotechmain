@@ -33,7 +33,7 @@ const HERO_SERVICES: HeroService[] = [
     title: "Software Development | Custom Enterprise",
     subtitle:
       "Streamlined business operations and custom cloud architectures built for long-term scalability.",
-    image: "/images/service_software.jpg",
+    image: "/images/Software Development Services in Calicut.webp",
     category: "Software Engineering",
   },
   {
@@ -41,7 +41,7 @@ const HERO_SERVICES: HeroService[] = [
     title: "Web App Development | Modern & Fast",
     subtitle:
       "Scalable web platforms engineered for performance, resilience, and conversion-focused experiences.",
-    image: "/images/service_web.jpg",
+    image: "/images/Web Development Services in Calicut.jpeg",
     category: "Web Platforms",
   },
   {
@@ -49,7 +49,7 @@ const HERO_SERVICES: HeroService[] = [
     title: "E-Commerce Solutions | Enterprise Scale",
     subtitle:
       "High-velocity digital storefronts built with seamless checkout, inventory sync, and multi-currency support.",
-    image: "/images/service_ecommerce.jpg",
+    image: "/images/E Commerce Development Services in Calicut.webp",
     category: "E-Commerce",
   },
   {
@@ -57,7 +57,7 @@ const HERO_SERVICES: HeroService[] = [
     title: "Mobile App Development | iOS & Android",
     subtitle:
       "Native and cross-platform mobile apps delivering fluid, intuitive user experiences at scale.",
-    image: "/images/service_mobile.jpg",
+    image: "/images/Mobile App Development Services in Calicut.webp",
     category: "Mobile Apps",
   },
 ];
@@ -134,9 +134,13 @@ function TypewriterHeadline() {
           drop-shadow-md
         "
       >
-        <span>{displayText}</span>
+        <span className="sr-only">
+          Aider Infotech - Best Software Development Company in Calicut
+        </span>
+        <span aria-hidden="true">{displayText || HEADLINE_PHRASES[0]}</span>
 
         <span
+          aria-hidden="true"
           className="
             inline-block
             w-[2.5px]
@@ -453,12 +457,12 @@ export function Hero() {
 
           <div
             className="
-              flex
-              flex-wrap
-              items-center
-              gap-4
               w-full
-              sm:w-auto
+              max-w-[620px]
+              grid
+              grid-cols-1
+              sm:grid-cols-2
+              gap-4
             "
           >
             {/* Strategy Call */}
@@ -466,12 +470,14 @@ export function Hero() {
               href="#contact"
               className="
                 group
-                inline-flex
+                flex
                 items-center
                 justify-center
                 gap-3
-                px-8
-                py-4
+                w-full
+                px-6
+                py-5
+                sm:py-5.5
                 rounded-2xl
                 bg-white/[0.06]
                 border
@@ -507,13 +513,14 @@ export function Hero() {
               href="tel:+918137837374"
               className="
                 group
-                inline-flex
+                flex
                 items-center
                 justify-center
-                gap-[#00E676]
                 gap-3
-                px-8
-                py-4
+                w-full
+                px-6
+                py-5
+                sm:py-5.5
                 rounded-2xl
                 bg-white/[0.06]
                 border

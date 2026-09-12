@@ -7,12 +7,12 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "About", href: "/#about" },
-  { label: "Services", href: "/#services" },
-  { label: "Departments", href: "/#departments" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Departments", href: "/departments" },
   { label: "Why Us", href: "/#why-us" },
   { label: "FAQs", href: "/#faqs" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -63,25 +63,25 @@ export function Navbar() {
         {/* Desktop Nav Links — Centered & Pure White */}
         <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-[18px] lg:text-[19.5px] font-medium text-white hover:text-[#00E676] transition-colors duration-200 tracking-[0.035em]"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Action Button — Pinned to Far Right */}
         <div className="hidden md:flex items-center shrink-0">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="group relative inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white/[0.07] border border-white/20 hover:border-[#00E676] hover:bg-[#00E676] text-white hover:text-[#0A0E14] text-[16.5px] font-medium transition-all duration-300 shadow-md active:scale-98 tracking-[0.02em]"
           >
             <span>Get in touch</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -89,6 +89,8 @@ export function Navbar() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden p-2 text-white hover:text-[#00E676] focus:outline-none transition-colors"
           aria-label="Toggle Navigation Menu"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation-drawer"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -96,7 +98,7 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0A0E14]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-6 transition-all duration-300 animate-in fade-in slide-in-from-top-4">
+        <div id="mobile-navigation-drawer" className="md:hidden bg-[#0A0E14]/98 backdrop-blur-2xl border-b border-white/10 px-6 py-6 transition-all duration-300 animate-in fade-in slide-in-from-top-4">
           <div className="pb-4 mb-3 border-b border-white/10 flex items-center">
             <Image
               src="/images/aider-logo-white-text.png"
@@ -109,24 +111,24 @@ export function Navbar() {
           </div>
           <nav className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-lg font-medium text-white hover:text-[#00E676] py-2 transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="pt-4 border-t border-white/10">
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#00E676] text-[#0A0E14] font-semibold text-base transition-transform active:scale-95"
               >
                 <span>Get in touch</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
           </nav>
         </div>
@@ -136,3 +138,4 @@ export function Navbar() {
 }
 
 export default Navbar;
+

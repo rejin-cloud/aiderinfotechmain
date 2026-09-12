@@ -274,6 +274,7 @@ export function CallToAction() {
               {/* Primary Call Button with Live Signal & Pulsing Glow */}
               <motion.a
                 href="tel:+918137837374"
+                aria-label="Call Aider Infotech at +91 8137837374"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-full bg-gradient-to-r from-[#00E676] via-[#00F5A0] to-[#00E5FF] text-[#0A0E14] font-bold text-sm sm:text-base shadow-[0_0_25px_rgba(0,230,118,0.4)] hover:shadow-[0_0_40px_rgba(0,230,118,0.65)] transition-all duration-300 overflow-hidden"
@@ -290,6 +291,7 @@ export function CallToAction() {
               {/* Secondary Email Button with Modern Glassmorphic Aura */}
               <motion.a
                 href="mailto:info@aiderinfotech.com"
+                aria-label="Email Aider Infotech team at info@aiderinfotech.com"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 className="group relative inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 hover:border-[#00E676]/60 text-white font-medium text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-[0_0_25px_rgba(0,230,118,0.2)]"

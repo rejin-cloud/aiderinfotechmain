@@ -262,9 +262,9 @@ function DepartmentCard({ dept, index }: { dept: Department; index: number }) {
           </h3>
 
           {/* Headline Subtitle */}
-          <h4 className="text-sm font-semibold text-white/90 mb-3 line-clamp-1">
+          <p className="text-sm font-semibold text-white/90 mb-3 line-clamp-1">
             {dept.headline}
-          </h4>
+          </p>
 
           {/* Body Description */}
           <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed mb-5 line-clamp-3">

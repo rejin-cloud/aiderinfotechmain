@@ -462,23 +462,23 @@ export function Footer() {
                 <div>
                   <ul className="space-y-3">
                     <li>
-                      <Link href="#about" className="text-white/90 hover:text-[#00E676] transition-colors">
+                      <Link href="/about" className="text-white/90 hover:text-[#00E676] transition-colors">
                         About Us
                       </Link>
                     </li>
                     <li>
-                      <Link href="#services" className="text-white/90 hover:text-[#00E676] transition-colors">
+                      <Link href="/services" className="text-white/90 hover:text-[#00E676] transition-colors">
                         Services
                       </Link>
                     </li>
                     <li>
-                      <Link href="#academy" className="text-white/90 hover:text-[#00E676] transition-colors">
-                        Technologies
+                      <Link href="/departments" className="text-white/90 hover:text-[#00E676] transition-colors">
+                        Departments
                       </Link>
                     </li>
                     <li>
-                      <Link href="#faqs" className="text-white/90 hover:text-[#00E676] transition-colors">
-                        Terms And Conditions
+                      <Link href="/#why-us" className="text-white/90 hover:text-[#00E676] transition-colors">
+                        Why Choose Us
                       </Link>
                     </li>
                   </ul>
@@ -486,23 +486,23 @@ export function Footer() {
                 <div>
                   <ul className="space-y-3">
                     <li>
-                      <Link href="#contact" className="text-white/90 hover:text-[#00E676] transition-colors">
+                      <Link href="/contact" className="text-white/90 hover:text-[#00E676] transition-colors">
                         Contact Us
                       </Link>
                     </li>
                     <li>
-                      <Link href="#contact" className="text-white/90 hover:text-[#00E676] transition-colors">
-                        Partner Program
+                      <Link href="/academy" className="text-white/90 hover:text-[#00E676] transition-colors">
+                        Aider Academy
                       </Link>
                     </li>
                     <li>
-                      <Link href="#faqs" className="text-white/90 hover:text-[#00E676] transition-colors">
-                        Sitemap
+                      <Link href="/creative" className="text-white/90 hover:text-[#00E676] transition-colors">
+                        Aider Creative
                       </Link>
                     </li>
                     <li>
-                      <Link href="#faqs" className="text-white/90 hover:text-[#00E676] transition-colors">
-                        Privacy Policy
+                      <Link href="/techstore" className="text-white/90 hover:text-[#00E676] transition-colors">
+                        IT Club Techstore
                       </Link>
                     </li>
                   </ul>
@@ -539,11 +539,11 @@ export function Footer() {
 
                 <div className="relative z-10 flex flex-col items-center w-full">
                   <AiderInfotechIcon className="w-8 h-8 sm:w-10 sm:h-10 text-cyan-400 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(0,229,255,0.7)] transition-all duration-300 mb-2 sm:mb-2.5" />
-                  <h3 className="text-xs sm:text-sm font-bold text-white tracking-widest uppercase mb-2">
+                  <p className="text-xs sm:text-sm font-bold text-white tracking-widest uppercase mb-2">
                     AIDER INFOTECH
-                  </h3>
+                  </p>
                   
-                  {/* Email with Sign */}
+                  {/* Email */}
                   <a
                     href="mailto:info@aiderinfotech.com"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-[#9CA3AF] hover:text-cyan-400 transition-colors mb-1 max-w-full truncate"
@@ -552,13 +552,13 @@ export function Footer() {
                     <span className="truncate">info@aiderinfotech.com</span>
                   </a>
 
-                  {/* Phone with Sign */}
+                  {/* Phone */}
                   <a
                     href="tel:+918137837374"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-white/90 hover:text-[#00E676] transition-colors"
                   >
                     <Phone className="w-3 h-3 text-[#00E676] shrink-0" />
-                    <span>+91 8137837374</span>
+                    <span>+91 8137 83 73 74</span>
                   </a>
                 </div>
               </motion.div>
@@ -588,26 +588,26 @@ export function Footer() {
 
                 <div className="relative z-10 flex flex-col items-center w-full">
                   <AiderCreativeIcon className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E676] group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(0,230,118,0.7)] transition-all duration-300 mb-2 sm:mb-2.5" />
-                  <h3 className="text-xs sm:text-sm font-bold text-white tracking-widest uppercase mb-2">
+                  <p className="text-xs sm:text-sm font-bold text-white tracking-widest uppercase mb-2">
                     AIDER CREATIVE
-                  </h3>
+                  </p>
                   
-                  {/* Email with Sign */}
+                  {/* Email */}
                   <a
-                    href="mailto:creative@aiderinfotech.com"
+                    href="mailto:info.aidercreative@gmail.com"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-[#9CA3AF] hover:text-[#00E676] transition-colors mb-1 max-w-full truncate"
                   >
                     <Mail className="w-3 h-3 text-[#00E676] shrink-0" />
-                    <span className="truncate">creative@aiderinfotech.com</span>
+                    <span className="truncate">info.aidercreative@gmail.com</span>
                   </a>
 
-                  {/* Phone with Sign */}
+                  {/* Phone */}
                   <a
-                    href="tel:+918137837374"
+                    href="tel:+918139837374"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-white/90 hover:text-[#00E676] transition-colors"
                   >
                     <Phone className="w-3 h-3 text-[#00E676] shrink-0" />
-                    <span>+91 8137837374</span>
+                    <span>+91 8139 837 374</span>
                   </a>
                 </div>
               </motion.div>
@@ -637,26 +637,28 @@ export function Footer() {
 
                 <div className="relative z-10 flex flex-col items-center w-full">
                   <AiderAcademyIcon className="w-8 h-8 sm:w-10 sm:h-10 text-amber-400 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(245,158,11,0.7)] transition-all duration-300 mb-2 sm:mb-2.5" />
-                  <h3 className="text-xs sm:text-sm font-bold text-white tracking-widest uppercase mb-2">
+                  <p className="text-xs sm:text-sm font-bold text-white tracking-widest uppercase mb-2">
                     AIDER ACADEMY
-                  </h3>
+                  </p>
                   
-                  {/* Email with Sign */}
+                  {/* Instagram / Handle */}
                   <a
-                    href="mailto:academy@aiderinfotech.com"
+                    href="https://instagram.com/aider.academy"
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-[#9CA3AF] hover:text-amber-400 transition-colors mb-1 max-w-full truncate"
                   >
-                    <Mail className="w-3 h-3 text-amber-400 shrink-0" />
-                    <span className="truncate">academy@aiderinfotech.com</span>
+                    <InstagramIcon className="w-3 h-3 text-amber-400 shrink-0" />
+                    <span className="truncate">@aider.academy</span>
                   </a>
 
-                  {/* Phone with Sign */}
+                  {/* Phone */}
                   <a
-                    href="tel:+918137837374"
+                    href="tel:+919605447374"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-white/90 hover:text-[#00E676] transition-colors"
                   >
                     <Phone className="w-3 h-3 text-[#00E676] shrink-0" />
-                    <span>+91 8137837374</span>
+                    <span>+91 9605 44 73 74</span>
                   </a>
                 </div>
               </motion.div>
@@ -686,26 +688,28 @@ export function Footer() {
 
                 <div className="relative z-10 flex flex-col items-center w-full">
                   <ITClubTechStoreIcon className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(168,85,247,0.7)] transition-all duration-300 mb-2 sm:mb-2.5" />
-                  <h3 className="text-xs sm:text-sm font-bold text-white tracking-widest uppercase mb-2">
+                  <p className="text-xs sm:text-sm font-bold text-white tracking-widest uppercase mb-2">
                     IT CLUB TECHSTORE
-                  </h3>
+                  </p>
                   
-                  {/* Email with Sign */}
+                  {/* Instagram / Handle */}
                   <a
-                    href="mailto:techstore@aiderinfotech.com"
+                    href="https://instagram.com/itclubstores"
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-[#9CA3AF] hover:text-purple-400 transition-colors mb-1 max-w-full truncate"
                   >
-                    <Mail className="w-3 h-3 text-purple-400 shrink-0" />
-                    <span className="truncate">techstore@aiderinfotech.com</span>
+                    <InstagramIcon className="w-3 h-3 text-purple-400 shrink-0" />
+                    <span className="truncate">@itclubstores</span>
                   </a>
 
-                  {/* Phone with Sign */}
+                  {/* Phone */}
                   <a
-                    href="tel:+918137837374"
+                    href="tel:+919037007374"
                     className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-white/90 hover:text-[#00E676] transition-colors"
                   >
                     <Phone className="w-3 h-3 text-[#00E676] shrink-0" />
-                    <span>+91 8137837374</span>
+                    <span>+91 9037 00 7374</span>
                   </a>
                 </div>
               </motion.div>
@@ -719,7 +723,7 @@ export function Footer() {
             {SEO_PILLS.map((pill, idx) => (
               <Link
                 key={idx}
-                href="#services"
+                href="/services"
                 className="px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 text-xs sm:text-sm text-white/80 hover:text-white hover:border-[#00E676]/40 hover:bg-white/[0.08] transition-all duration-200"
               >
                 {pill}

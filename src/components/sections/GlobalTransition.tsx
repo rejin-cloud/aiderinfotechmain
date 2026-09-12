@@ -9,7 +9,7 @@ const SOLUTION_TAGS = [
   { label: "# Web Development", href: "#services" },
   { label: "# E-Commerce", href: "#services" },
   { label: "# Mobile Apps", href: "#services" },
-  { label: "# Custom Software", href: "#services" },
+  { label: "# ERP and CRM Development", href: "#services" },
   { label: "# Digital Marketing & SEO", href: "#services" },
 ];
 
@@ -203,10 +203,10 @@ export function GlobalTransition() {
           <div ref={headingRef} className="w-full will-change-transform">
             <h2 className="font-[family-name:var(--font-outfit)] font-light tracking-[-0.01em] text-4xl sm:text-6xl md:text-7xl lg:text-[4.75rem] xl:text-[5.25rem] leading-[1.15] sm:leading-[1.18]">
               <span className="block text-white drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)] sm:whitespace-nowrap">
-                Complete Digital Solutions
+                Best Digital Solutions
               </span>
               <span className="block text-white/95 mt-2 sm:mt-3 drop-shadow-[0_2px_20px_rgba(255,255,255,0.12)] sm:whitespace-nowrap">
-                Built for Growing Businesses
+                Company in Calicut
               </span>
             </h2>
           </div>

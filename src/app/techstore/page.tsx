@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import {
   Cpu,
@@ -17,10 +18,30 @@ import {
   Flame,
 } from "lucide-react";
 
-export const metadata = {
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aiderinfotech.com";
+
+export const metadata: Metadata = {
   title: "IT Club Techstore | Custom PC Builds, Laptop Sales & Repair Center in Calicut",
   description:
     "IT Club Techstore in Calicut is your premium hardware store for custom liquid-cooled gaming PCs, high-end workstations, laptops, chip-level motherboard repairs, and genuine upgrades.",
+  alternates: {
+    canonical: `${siteUrl}/techstore`,
+  },
+  openGraph: {
+    title: "IT Club Techstore | Custom PC Builds & Laptop Repair Center in Calicut",
+    description:
+      "Custom gaming PCs, 3D workstations, laptop sales, chip-level motherboard repairs, and SSD/RAM upgrades in Calicut, Kerala.",
+    url: `${siteUrl}/techstore`,
+    siteName: "Aider Infotech",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IT Club Techstore | Custom PC Builds & Repair Calicut",
+    description:
+      "Custom liquid-cooled gaming PCs, workstations, laptop repairs, and component upgrades.",
+  },
 };
 
 const SERVICES = [
@@ -69,21 +90,73 @@ const SERVICES = [
 ];
 
 export default function TechStorePage() {
+  const jsonLdTechStore = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ComputerStore",
+        "@id": `${siteUrl}/techstore/#store`,
+        "name": "IT Club Techstore",
+        "url": `${siteUrl}/techstore`,
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Aider Infotech",
+          "url": siteUrl,
+        },
+        "description":
+          "Custom PC Building, Gaming Battlestation Studio, Workstations, Laptop Sales & Chip-Level Repairs in Calicut & Balussery, Kerala.",
+        "telephone": "+91 9037 00 7374",
+        "priceRange": "$$",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Dubai Bazar",
+            "addressLocality": "Calicut",
+            "addressRegion": "Kerala",
+            "addressCountry": "IN",
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Malabar Complex",
+            "addressLocality": "Balussery",
+            "addressRegion": "Kerala",
+            "addressCountry": "IN",
+          },
+        ],
+      },
+      ...SERVICES.map((service) => ({
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description,
+        "provider": {
+          "@type": "ComputerStore",
+          "name": "IT Club Techstore",
+          "sameAs": `${siteUrl}/techstore`,
+        },
+      })),
+    ],
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-[#0A0E14] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdTechStore) }}
+      />
       <main className="flex-1 pt-32 pb-20 px-6 sm:px-12 max-w-7xl mx-auto w-full">
         {/* Back Link */}
         <Link
           href="/#departments"
-          className="inline-flex items-center gap-2 text-sm text-[#9CA3AF] hover:text-[#A855F7] transition-colors mb-8 group"
+          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-[#A855F7]/60 hover:bg-[#A855F7]/10 text-white/80 hover:text-[#A855F7] text-xs font-mono tracking-wider font-semibold transition-all duration-300 shadow-lg group backdrop-blur-md mb-8 active:scale-95"
         >
-          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          <span>Back to Home</span>
+          <div className="w-6 h-6 rounded-full bg-white/10 group-hover:bg-[#A855F7]/20 flex items-center justify-center text-[#A855F7] transition-colors">
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
+          </div>
+          <span>BACK TO DEPARTMENTS</span>
         </Link>
 
         {/* Hero Section */}
-        <div className="glass-card relative p-8 sm:p-14 border border-white/10 rounded-3xl overflow-hidden mb-16">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#A855F7]/15 blur-[120px] pointer-events-none" />
+        <div className="glass-card relative p-8 sm:p-14 border border-white/10 rounded-3xl overflow-hidden mb-16 shadow-2xl">
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
@@ -129,6 +202,7 @@ export default function TechStorePage() {
                 src="/images/dept_techstore.jpg"
                 alt="IT Club Techstore custom PC builds and repair center in Calicut"
                 fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
                 priority
                 className="object-cover object-center"
               />
@@ -142,34 +216,37 @@ export default function TechStorePage() {
         </div>
 
         {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          <div className="glass-card p-6 sm:p-8 border border-white/10 rounded-2xl">
-            <Flame className="w-8 h-8 text-[#A855F7] mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">Custom Rig Tuning</h3>
-            <p className="text-sm text-[#9CA3AF] leading-relaxed">
-              Every custom computer undergoes 24-hour benchmark stress testing, thermal curve
-              optimization, and memory timing validation before delivery.
-            </p>
-          </div>
+        <section aria-label="Hardware Lab Pillars" className="mb-20">
+          <h2 className="sr-only">Hardware Lab Capabilities & Guarantees</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="glass-card p-6 sm:p-8 border border-white/10 rounded-2xl">
+              <Flame className="w-8 h-8 text-[#A855F7] mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Custom Rig Tuning</h3>
+              <p className="text-sm text-[#9CA3AF] leading-relaxed">
+                Every custom computer undergoes 24-hour benchmark stress testing, thermal curve
+                optimization, and memory timing validation before delivery.
+              </p>
+            </div>
 
-          <div className="glass-card p-6 sm:p-8 border border-white/10 rounded-2xl">
-            <Wrench className="w-8 h-8 text-[#00E5FF] mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">Microscopic Chip Repairs</h3>
-            <p className="text-sm text-[#9CA3AF] leading-relaxed">
-              Equipped with digital stereomicroscopes, hot-air reflow stations, and precision
-              oscilloscopes to fix motherboards deemed unrepairable elsewhere.
-            </p>
-          </div>
+            <div className="glass-card p-6 sm:p-8 border border-white/10 rounded-2xl">
+              <Wrench className="w-8 h-8 text-[#00E5FF] mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Microscopic Chip Repairs</h3>
+              <p className="text-sm text-[#9CA3AF] leading-relaxed">
+                Equipped with digital stereomicroscopes, hot-air reflow stations, and precision
+                oscilloscopes to fix motherboards deemed unrepairable elsewhere.
+              </p>
+            </div>
 
-          <div className="glass-card p-6 sm:p-8 border border-white/10 rounded-2xl">
-            <ShieldCheck className="w-8 h-8 text-[#00E676] mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">Genuine Components</h3>
-            <p className="text-sm text-[#9CA3AF] leading-relaxed">
-              100% authentic components sourced directly from authorized manufacturers (Intel, AMD,
-              Nvidia, ASUS, Corsair, Crucial) with full warranty coverage.
-            </p>
+            <div className="glass-card p-6 sm:p-8 border border-white/10 rounded-2xl">
+              <ShieldCheck className="w-8 h-8 text-[#00E676] mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Genuine Components</h3>
+              <p className="text-sm text-[#9CA3AF] leading-relaxed">
+                100% authentic components sourced directly from authorized manufacturers (Intel, AMD,
+                Nvidia, ASUS, Corsair, Crucial) with full warranty coverage.
+              </p>
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* Services & Hardware Catalog */}
         <div id="catalog" className="mb-20">
@@ -212,33 +289,68 @@ export default function TechStorePage() {
 
         {/* Contact / Service Booking Section */}
         <div id="service" className="glass-card p-8 sm:p-12 border border-white/15 rounded-3xl relative overflow-hidden">
-          <div className="max-w-2xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-mono text-[#A855F7] uppercase tracking-widest block mb-2">
-              HARDWARE LAB & STORE
+              HARDWARE LAB & TECH STORES
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-              Visit IT Club Techstore in Calicut
+              Visit IT Club Techstore Locations
             </h2>
             <p className="text-sm sm:text-base text-[#9CA3AF] mb-8">
-              Bring in your laptop or desktop for instant diagnosis, or consult our hardware engineers
-              to design your dream custom PC build today.
+              Bring in your laptop or desktop for instant diagnosis, or consult our hardware engineers for custom PC builds at our store locations.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="tel:+918137837374"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-[#A855F7] text-white font-bold text-sm shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:bg-white hover:text-black transition-all"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Call Tech Store: +91 8137837374</span>
-              </a>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-8">
+              {/* Store 1 */}
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#A855F7]/40 transition-colors">
+                <span className="text-xs font-mono text-[#A855F7] uppercase tracking-wider block mb-1">
+                  STORE 1 • CALICUT
+                </span>
+                <h3 className="text-lg font-bold text-white mb-2">Dubai Bazar, Calicut</h3>
+                <p className="text-xs text-[#9CA3AF] mb-4">Custom PC Assembly & Micro-Soldering Bench</p>
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-[#A855F7]" />
+                    <a href="tel:+919037007374" className="text-white hover:text-[#A855F7] font-semibold transition-colors">
+                      +91 9037 00 7374
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-[#A855F7]" />
+                    <a href="tel:+919037117374" className="text-white hover:text-[#A855F7] font-semibold transition-colors">
+                      +91 903711 7374
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-              <a
-                href="mailto:info@aiderinfotech.com?subject=IT%20Club%20Techstore%20Inquiry"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-sm transition-all"
-              >
-                <Mail className="w-4 h-4" />
-                <span>Email: info@aiderinfotech.com</span>
+              {/* Store 2 */}
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#A855F7]/40 transition-colors">
+                <span className="text-xs font-mono text-[#A855F7] uppercase tracking-wider block mb-1">
+                  STORE 2 • BALUSSERY
+                </span>
+                <h3 className="text-lg font-bold text-white mb-2">Malabar Complex, Balussery</h3>
+                <p className="text-xs text-[#9CA3AF] mb-4">Laptop Sales & Chip-Level Repair Lab</p>
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-[#A855F7]" />
+                    <a href="tel:+919037577374" className="text-white hover:text-[#A855F7] font-semibold transition-colors">
+                      +91 9037 57 7374
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-[#A855F7]" />
+                    <a href="tel:+919037587374" className="text-white hover:text-[#A855F7] font-semibold transition-colors">
+                      +91 9037 58 7374
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center gap-6 text-xs text-[#9CA3AF] border-t border-white/10 pt-6">
+              <a href="https://instagram.com/itclubstores" target="_blank" rel="noopener noreferrer" className="hover:text-[#A855F7] transition-colors">
+                📷 Instagram: @itclubstores
               </a>
             </div>
           </div>
