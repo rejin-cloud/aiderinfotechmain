@@ -1,33 +1,44 @@
 # Disable directory indexing to prevent 403 Forbidden errors on folder access
-Options -Indexes
-
-# Set default document
 DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Direct access for _next static assets
-  RewriteCond %{REQUEST_URI} ^/_next/
+  # =====================================================================
+  # 1. CLEANUP OLD WORDPRESS URLS (Remove "Hello World", "Astra", etc. from Google)
+  # Redirect old WP paths to home page (301 Permanent Redirect)
+  # =====================================================================
+  RewriteCond %{QUERY_STRING} (^|&)p= [NC,OR]
+  RewriteCond %{REQUEST_URI} ^/(hello-world|sample-page|wp-login|wp-admin|wp-content|wp-includes|feed|comments) [NC]
+  RewriteRule ^(.*)$ /? [R=301,L]
+
+  # =====================================================================
+  # 2. STATIC ASSET & ROUTING DIRECT ACCESS
+  # Direct access for _next, images, and js
+  # =====================================================================
+  RewriteCond %{REQUEST_URI} ^/(_next|images|js)/ [NC]
   RewriteRule ^ - [L]
 
-  # Serve existing files directly
+  # Serve existing files directly (favicon.ico, sitemap.xml, robots.txt)
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
-  # Serve existing directories if index.html exists
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteCond %{REQUEST_FILENAME}/index.html -f
-  RewriteRule ^ - [L]
-
-  # Clean URL routing for static export: /about -> /about/index.html
+  # =====================================================================
+  # 3. CLEAN SUBPAGE ROUTING (Prevents 403 Forbidden on /about, /services, etc.)
+  # /about -> /about/index.html
+  # =====================================================================
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.*)$ $1/index.html [L]
 
-  # Clean URL routing fallback: /about -> /about.html
+  # /about -> /about.html fallback
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^(.*)$ $1.html [L]
+
+  # Serve directory index.html if directory is accessed
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)$ %{REQUEST_FILENAME}/index.html [L]
 
   # Custom 404 page handler
   ErrorDocument 404 /404.html
